@@ -1,1 +1,401 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing - API Marketplace</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        :root {
+            --accent-color: #2563eb;
+            --accent-hover: #1d4ed8;
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --border-color: #e5e7eb;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: #ffffff;
+        }
+
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 0;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .pricing-header {
+            text-align: center;
+            padding: 4rem 2rem 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .pricing-header h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .pricing-header p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+        }
+
+        .pricing-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem 6rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .pricing-card {
+            background: white;
+            border: 2px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2.5rem;
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .pricing-card.featured {
+            border-color: var(--accent-color);
+            border-width: 3px;
+            position: relative;
+        }
+
+        .featured-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent-color);
+            color: white;
+            padding: 0.4rem 1.5rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 700;
+        }
+
+        .plan-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .plan-description {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .plan-price {
+            margin-bottom: 2rem;
+        }
+
+        .price-amount {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--text-primary);
+        }
+
+        .price-period {
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+
+        .plan-features {
+            list-style: none;
+            margin-bottom: 2rem;
+            flex-grow: 1;
+        }
+
+        .plan-features li {
+            padding: 0.75rem 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+
+        .plan-features li:before {
+            content: "✓";
+            color: var(--accent-color);
+            font-weight: 700;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: block;
+            text-align: center;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--accent-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--accent-color);
+            border: 2px solid var(--accent-color);
+        }
+
+        .btn-secondary:hover {
+            background: var(--accent-color);
+            color: white;
+        }
+
+        .faq-section {
+            background: #f9fafb;
+            padding: 5rem 2rem;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-container h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+        }
+
+        .faq-item {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .faq-item h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .faq-item p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        footer {
+            background: #1f2937;
+            color: #9ca3af;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .pricing-header h1 {
+                font-size: 2rem;
+            }
+
+            .pricing-container {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/" class="logo">API Marketplace</a>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#docs">Docs</a></li>
+                <li><a href="#login">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="pricing-header">
+        <h1>Simple, Transparent Pricing</h1>
+        <p>Choose the plan that fits your needs. All plans include core features and 24/7 support.</p>
+    </div>
+
+    <div class="pricing-container">
+        <div class="pricing-card">
+            <h3 class="plan-name">Free</h3>
+            <p class="plan-description">Perfect for testing and small projects</p>
+            <div class="plan-price">
+                <span class="price-amount">$0</span>
+                <span class="price-period">/month</span>
+            </div>
+            <ul class="plan-features">
+                <li>1,000 requests per month</li>
+                <li>Access to public APIs</li>
+                <li>Basic analytics dashboard</li>
+                <li>Community support</li>
+                <li>Standard rate limits</li>
+            </ul>
+            <a href="#signup" class="btn btn-secondary">Get Started</a>
+        </div>
+
+        <div class="pricing-card">
+            <h3 class="plan-name">Basic</h3>
+            <p class="plan-description">Great for growing businesses</p>
+            <div class="plan-price">
+                <span class="price-amount">$29</span>
+                <span class="price-period">/month</span>
+            </div>
+            <ul class="plan-features">
+                <li>50,000 requests per month</li>
+                <li>Access to all public APIs</li>
+                <li>Advanced analytics</li>
+                <li>Email support</li>
+                <li>API key management</li>
+                <li>99.9% uptime SLA</li>
+            </ul>
+            <a href="#signup" class="btn btn-secondary">Subscribe Now</a>
+        </div>
+
+        <div class="pricing-card featured">
+            <span class="featured-badge">Most Popular</span>
+            <h3 class="plan-name">Pro</h3>
+            <p class="plan-description">For professional developers and teams</p>
+            <div class="plan-price">
+                <span class="price-amount">$99</span>
+                <span class="price-period">/month</span>
+            </div>
+            <ul class="plan-features">
+                <li>500,000 requests per month</li>
+                <li>Access to all APIs (public & premium)</li>
+                <li>Real-time analytics & webhooks</li>
+                <li>Priority email & chat support</li>
+                <li>Multiple API keys</li>
+                <li>Custom rate limits</li>
+                <li>99.95% uptime SLA</li>
+            </ul>
+            <a href="#signup" class="btn btn-primary">Subscribe Now</a>
+        </div>
+
+        <div class="pricing-card">
+            <h3 class="plan-name">Enterprise</h3>
+            <p class="plan-description">Custom solutions for large organizations</p>
+            <div class="plan-price">
+                <span class="price-amount">Custom</span>
+            </div>
+            <ul class="plan-features">
+                <li>Unlimited requests</li>
+                <li>Dedicated infrastructure</li>
+                <li>White-label options</li>
+                <li>24/7 phone & dedicated support</li>
+                <li>Custom integrations</li>
+                <li>SLA guarantees</li>
+                <li>Onboarding & training</li>
+                <li>Volume discounts</li>
+            </ul>
+            <a href="#contact" class="btn btn-secondary">Contact Sales</a>
+        </div>
+    </div>
+
+    <section class="faq-section">
+        <div class="faq-container">
+            <h2>Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <h3>Can I change plans later?</h3>
+                <p>Yes, you can upgrade or downgrade your plan at any time. Changes take effect immediately, and billing is prorated.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>What happens if I exceed my request limit?</h3>
+                <p>Your requests will be temporarily throttled. You can upgrade your plan or purchase additional request credits to continue using the service.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Do you offer refunds?</h3>
+                <p>We offer a 14-day money-back guarantee for all paid plans. If you're not satisfied, contact us for a full refund.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Is there a commitment period?</h3>
+                <p>No, all plans are month-to-month with no long-term commitment. You can cancel at any time.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>How do I track my API usage?</h3>
+                <p>Every plan includes access to a detailed analytics dashboard where you can monitor your requests, response times, and usage patterns in real-time.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 API Marketplace. All rights reserved.</p>
+    </footer>
+</body>
+</html>
+```
