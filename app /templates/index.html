@@ -1,1 +1,405 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Marketplace - Manage & Monetize Your APIs</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        :root {
+            --accent-color: #2563eb;
+            --accent-hover: #1d4ed8;
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --border-color: #e5e7eb;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: #ffffff;
+        }
+
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--accent-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--accent-color);
+            border: 2px solid var(--accent-color);
+        }
+
+        .btn-secondary:hover {
+            background: var(--accent-color);
+            color: white;
+        }
+
+        .hero {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .features {
+            background: #f9fafb;
+            padding: 6rem 2rem;
+        }
+
+        .features-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--accent-color);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .cta-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section p {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        footer {
+            background: #1f2937;
+            color: #9ca3af;
+            padding: 3rem 2rem 1.5rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            color: white;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: #9ca3af;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            border-top: 1px solid #374151;
+            text-align: center;
+        }
+
+        .mobile-menu {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.125rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: block;
+                background: none;
+                border: none;
+                font-size: 1.5rem;
+                cursor: pointer;
+            }
+
+            .features h2, .cta-section h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">API Marketplace</div>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#docs">Docs</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#login">Login</a></li>
+                <li><a href="#signup" class="btn btn-primary">Get Started</a></li>
+            </ul>
+            <button class="mobile-menu">☰</button>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Manage & Monetize Your APIs</h1>
+        <p>The professional platform for API providers. List your APIs, control access, track usage, and scale your business effortlessly.</p>
+        <div class="hero-buttons">
+            <a href="#signup" class="btn btn-primary">List Your API</a>
+            <a href="#explore" class="btn btn-secondary">Explore APIs</a>
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <div class="features-container">
+            <h2>Everything You Need to Succeed</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📋</div>
+                    <h3>Easy API Listing</h3>
+                    <p>List your existing APIs in minutes with our intuitive dashboard. Set pricing, access levels, and documentation.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔐</div>
+                    <h3>Access Control</h3>
+                    <p>Secure API key management with customizable permissions. Control who can access your APIs and when.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Usage Tracking</h3>
+                    <p>Real-time analytics and detailed usage reports. Monitor performance and optimize your API offerings.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💳</div>
+                    <h3>Subscription Management</h3>
+                    <p>Flexible pricing plans and automated billing. Let users subscribe to your APIs with ease.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Rate Limiting</h3>
+                    <p>Built-in rate limiting to protect your infrastructure. Define custom limits per plan or user.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3>Scale Effortlessly</h3>
+                    <p>Enterprise-grade infrastructure that grows with your business. Focus on your API, not the platform.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <h2>Ready to Get Started?</h2>
+        <p>Join hundreds of API providers who trust our platform to manage and monetize their APIs.</p>
+        <a href="#signup" class="btn btn-primary">Create Your Account</a>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>Product</h4>
+                <ul>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#docs">Documentation</a></li>
+                    <li><a href="#api">API Reference</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="#careers">Careers</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="#guides">Guides</a></li>
+                    <li><a href="#help">Help Center</a></li>
+                    <li><a href="#status">Status</a></li>
+                    <li><a href="#terms">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Connect</h4>
+                <ul>
+                    <li><a href="#twitter">Twitter</a></li>
+                    <li><a href="#github">GitHub</a></li>
+                    <li><a href="#linkedin">LinkedIn</a></li>
+                    <li><a href="mailto:hello@apimarketplace.com">Email</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 API Marketplace. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
+```
