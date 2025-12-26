@@ -1,0 +1,391 @@
+# ===================================================================
+# ZENVEXA API - GITIGNORE FILE
+# ===================================================================
+# This file tells Git which files and folders to ignore
+# Copy this file as ".gitignore" in your project root
+# ===================================================================
+
+# ===================================================================
+# ENVIRONMENT & CONFIGURATION FILES
+# ===================================================================
+
+# Environment variables (NEVER commit these!)
+.env
+.env.local
+.env.development
+.env.production
+.env.staging
+.env.*.local
+
+# Configuration files with secrets
+config.py
+settings.py
+secrets.yaml
+credentials.json
+
+# ===================================================================
+# PYTHON FILES
+# ===================================================================
+
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Python virtual environments
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+env/
+.venv
+pip-selfcheck.json
+
+# Python build files
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+pytest.ini
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+.python-version
+
+# ===================================================================
+# DATABASE FILES
+# ===================================================================
+
+# SQLite databases
+*.db
+*.sqlite
+*.sqlite3
+database.db
+zenvexa.db
+dev.db
+test.db
+
+# Database backups
+*.sql
+*.sql.gz
+*.dump
+backup/
+backups/
+*.backup
+
+# ===================================================================
+# LOG FILES
+# ===================================================================
+
+# Application logs
+logs/
+*.log
+log/
+logging/
+app.log
+error.log
+access.log
+
+# System logs
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ===================================================================
+# IDE & EDITOR FILES
+# ===================================================================
+
+# VS Code
+.vscode/
+*.code-workspace
+.settings.json
+launch.json
+
+# PyCharm
+.idea/
+*.iml
+*.iws
+*.ipr
+.pycharm_helpers/
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+.sublime-gulp.cache
+
+# Vim
+*.swp
+*.swo
+*~
+.vim/
+.viminfo
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+
+# ===================================================================
+# OPERATING SYSTEM FILES
+# ===================================================================
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Linux
+*~
+.nfs*
+
+# ===================================================================
+# TEMPORARY FILES
+# ===================================================================
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+*~
+
+# Cache files
+.cache/
+.cache
+.npm/
+.node-gyp/
+.yarn-integrity
+
+# ===================================================================
+# STATIC FILES & MEDIA
+# ===================================================================
+
+# Uploaded files
+uploads/
+media/
+staticfiles/
+collectstatic/
+
+# User-generated content
+user_uploads/
+documents/
+images/
+videos/
+
+# ===================================================================
+# DEPENDENCY DIRECTORIES
+# ===================================================================
+
+# Node.js (if using any frontend tools)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# ===================================================================
+# SECURITY FILES
+# ===================================================================
+
+# SSL certificates
+*.pem
+*.key
+*.crt
+*.csr
+ssl/
+certs/
+
+# SSH keys
+*.pub
+*.private
+id_rsa
+id_dsa
+id_ecdsa
+id_ed25519
+
+# ===================================================================
+# DOCKER FILES
+# ===================================================================
+
+# Docker volumes
+docker-volumes/
+volume/
+volumes/
+
+# Docker secrets
+*.secret
+docker-secrets/
+
+# ===================================================================
+# TESTING FILES
+# ===================================================================
+
+# Test coverage
+.coverage
+htmlcov/
+.coverage.*
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+
+# Test databases
+test.db
+test.sqlite
+test.sqlite3
+
+# Test results
+test-results/
+test_results/
+test-reports/
+test_reports/
+
+# ===================================================================
+# DEPLOYMENT FILES
+# ===================================================================
+
+# Deployment scripts (keep sensitive ones private)
+deploy/
+deployment/
+deploy.sh
+deploy.ps1
+
+# CI/CD files (keep credentials private)
+.github/credentials/
+.gitlab-ci-credentials/
+jenkins-credentials/
+
+# ===================================================================
+# MONITORING FILES
+# ===================================================================
+
+# Monitoring data
+monitoring/
+metrics/
+statsd/
+prometheus/
+grafana/
+
+# ===================================================================
+# BACKUP FILES
+# ===================================================================
+
+# Backup files
+*.backup
+*.bak
+*.old
+*.orig
+
+# Archive files
+*.tar
+*.tar.gz
+*.zip
+*.rar
+*.7z
+
+# ===================================================================
+# BEGINNER NOTES
+# ===================================================================
+
+# 1. This file protects you from accidentally committing:
+#    - Secret keys and passwords
+#    - Database files with real data
+#    - Virtual environment folders
+#    - Log files with sensitive information
+#    - IDE configuration files
+
+# 2. Always create .gitignore BEFORE your first commit
+# 3. If you accidentally commit sensitive files:
+#    - Use `git rm --cached filename` to unstage
+#    - Then add to .gitignore
+#    - Commit the .gitignore file
+
+# 4. To check what Git is ignoring:
+#    - Run: git status --ignored
+
+# 5. Common commands:
+#    - Add all (respects .gitignore): git add .
+#    - Check ignored files: git check-ignore -v filename
+#    - Clean ignored files: git clean -X -f (CAREFUL!)
+
+# ===================================================================
+# CUSTOM IGNORES (Add your project-specific files here)
+# ===================================================================
+
+# Add any project-specific files/folders to ignore below:
+# my-custom-folder/
+# my-secret-file.txt
+# *.custom-extension
