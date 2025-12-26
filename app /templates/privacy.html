@@ -1,0 +1,388 @@
+{% extends "base.html" %}
+
+{% block title %}Privacy Policy - Zenvexa API{% endblock %}
+
+{% block extra_css %}
+<style>
+    :root {
+        --primary: #0ea5e9;
+        --primary-dark: #0284c7;
+        --gray-50: #f8fafc;
+        --gray-100: #f1f5f9;
+        --gray-200: #e2e8f0;
+        --gray-300: #cbd5e1;
+        --gray-500: #64748b;
+        --gray-700: #334155;
+        --gray-900: #0f172a;
+    }
+
+    .privacy-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 4rem 2rem;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        background-color: white;
+        color: var(--gray-900);
+        line-height: 1.7;
+    }
+
+    .privacy-header {
+        text-align: center;
+        margin-bottom: 4rem;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid var(--gray-200);
+    }
+
+    .privacy-header h1 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin: 0 0 1rem;
+    }
+
+    .last-updated {
+        color: var(--gray-500);
+        font-size: 0.875rem;
+        font-weight: 500;
+    }
+
+    .section {
+        margin-bottom: 3rem;
+    }
+
+    .section h2 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin: 0 0 1rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid var(--gray-100);
+    }
+
+    .section h3 {
+        font-size: 1.125rem;
+        font-weight: 600;
+        color: var(--gray-700);
+        margin: 1.5rem 0 0.5rem;
+    }
+
+    .section p, .section li {
+        color: var(--gray-700);
+        margin: 0 0 1rem;
+    }
+
+    .section ul {
+        padding-left: 1.5rem;
+        margin: 0 0 1rem;
+    }
+
+    .data-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.5rem 0;
+        font-size: 0.875rem;
+    }
+
+    .data-table th,
+    .data-table td {
+        padding: 0.75rem;
+        text-align: left;
+        border-bottom: 1px solid var(--gray-200);
+    }
+
+    .data-table th {
+        background-color: var(--gray-50);
+        font-weight: 600;
+        color: var(--gray-900);
+    }
+
+    .highlight-box {
+        background-color: var(--gray-50);
+        border-left: 4px solid var(--primary);
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+        border-radius: 0 8px 8px 0;
+    }
+
+    .contact-info {
+        background-color: var(--gray-50);
+        padding: 1.5rem;
+        border-radius: 8px;
+        margin-top: 2rem;
+    }
+
+    .contact-info a {
+        color: var(--primary);
+        text-decoration: none;
+        font-weight: 500;
+    }
+
+    .contact-info a:hover {
+        text-decoration: underline;
+    }
+
+    .legal-footer {
+        margin-top: 4rem;
+        padding-top: 2rem;
+        border-top: 1px solid var(--gray-200);
+        text-align: center;
+        color: var(--gray-500);
+        font-size: 0.875rem;
+    }
+
+    @media (max-width: 768px) {
+        .privacy-container {
+            padding: 2rem 1rem;
+        }
+
+        .privacy-header h1 {
+            font-size: 2rem;
+        }
+
+        .data-table {
+            font-size: 0.75rem;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="privacy-container">
+    <div class="privacy-header">
+        <h1>Privacy Policy</h1>
+        <p class="last-updated">Last updated: December 26, 2025</p>
+    </div>
+
+    <section class="section">
+        <h2>Introduction</h2>
+        <p>At Zenvexa API, your privacy is our priority. This Privacy Policy explains how we collect, use, disclose, and protect your information when you use our API services, website, and related platforms.</p>
+        <p>By using Zenvexa API, you consent to the practices described in this policy. We comply with applicable data protection laws including GDPR, CCPA, and other relevant regulations.</p>
+    </section>
+
+    <section class="section">
+        <h2>Data Collection</h2>
+        
+        <h3>Information You Provide</h3>
+        <p>We collect information you voluntarily provide when:</p>
+        <ul>
+            <li>Creating an account (name, email, company)</li>
+            <li>Making API requests (request data, parameters)</li>
+            <li>Contacting support (messages, tickets)</li>
+            <li>Purchasing services (billing information)</li>
+        </ul>
+
+        <h3>Automatically Collected Information</h3>
+        <p>We automatically collect:</p>
+        <ul>
+            <li><strong>Log Data:</strong> IP address, browser type, device info, timestamps</li>
+            <li><strong>Usage Data:</strong> API calls, response times, error rates</li>
+            <li><strong>Location Data:</strong> Approximate location from IP address</li>
+            <li><strong>Cookies:</strong> Session management, preferences, analytics</li>
+        </ul>
+
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Data Type</th>
+                    <th>Purpose</th>
+                    <th>Retention Period</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Account Information</td>
+                    <td>Authentication, service delivery</td>
+                    <td>Account lifetime + 30 days</td>
+                </tr>
+                <tr>
+                    <td>API Request Data</td>
+                    <td>Service operation, debugging</td>
+                    <td>30 days</td>
+                </tr>
+                <tr>
+                    <td>Billing Information</td>
+                    <td>Payment processing, tax compliance</td>
+                    <td>7 years (legal requirement)</td>
+                </tr>
+                <tr>
+                    <td>Log Data</td>
+                    <td>Security, performance monitoring</td>
+                    <td>90 days</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section class="section">
+        <h2>Data Usage</h2>
+        
+        <h3>How We Use Your Information</h3>
+        <p>We use collected data to:</p>
+        <ul>
+            <li>Provide and maintain our API services</li>
+            <li>Process payments and prevent fraud</li>
+            <li>Send service notifications and updates</li>
+            <li>Improve service performance and reliability</li>
+            <li>Comply with legal obligations</li>
+            <li>Detect and prevent security incidents</li>
+        </ul>
+
+        <h3>Data Processing Legal Bases</h3>
+        <p>We process personal data based on:</p>
+        <ul>
+            <li><strong>Contract:</strong> To provide services you requested</li>
+            <li><strong>Legitimate Interests:</strong> Service improvement, security</li>
+            <li><strong>Consent:</strong> Marketing communications (opt-in)</li>
+            <li><strong>Legal Obligation:</strong> Tax, regulatory compliance</li>
+        </ul>
+    </section>
+
+    <section class="section">
+        <h2>Cookies and Tracking</h2>
+        
+        <h3>Types of Cookies</h3>
+        <ul>
+            <li><strong>Essential Cookies:</strong> Required for basic functionality</li>
+            <li><strong>Analytics Cookies:</strong> Help us understand usage patterns</li>
+            <li><strong>Preference Cookies:</strong> Remember your settings</li>
+            <li><strong>Marketing Cookies:</strong> Used with your consent only</li>
+        </ul>
+
+        <h3>Cookie Management</h3>
+        <p>You can control cookies through:</p>
+        <ul>
+            <li>Browser settings (block/delete cookies)</li>
+            <li>Our cookie preference center</li>
+            <li>Third-party opt-out tools</li>
+        </ul>
+
+        <div class="highlight-box">
+            <p><strong>Note:</strong> Blocking essential cookies may prevent some features from working properly.</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>Data Protection</h2>
+        
+        <h3>Security Measures</h3>
+        <p>We implement industry-standard security:</p>
+        <ul>
+            <li>TLS 1.3 encryption for all data transmission</li>
+            <li>AES-256 encryption for stored data</li>
+            <li>Regular security audits and penetration testing</li>
+            <li>Multi-factor authentication for accounts</li>
+            <li>Role-based access controls</li>
+            <li>24/7 security monitoring</li>
+        </ul>
+
+        <h3>Data Breach Response</h3>
+        <p>In case of data breach, we will:</p>
+        <ul>
+            <li>Notify affected users within 72 hours</li>
+            <li>Provide detailed incident report</li>
+            <li>Implement corrective measures</li>
+            <li>Comply with regulatory notification requirements</li>
+        </ul>
+    </section>
+
+    <section class="section">
+        <h2>Data Sharing</h2>
+        
+        <h3>Third-Party Processors</h3>
+        <p>We share data only with trusted processors:</p>
+        <ul>
+            <li>Payment processors (Stripe, PayPal)</li>
+            <li>Cloud infrastructure providers (AWS, Google Cloud)</li>
+            <li>Analytics services (with anonymization)</li>
+            <li>Customer support tools</li>
+        </ul>
+
+        <h3>Legal Disclosures</h3>
+        <p>We may disclose data when required by law or to:</p>
+        <ul>
+            <li>Comply with legal obligations</li>
+            <li>Protect our rights and property</li>
+            <li>Prevent fraud or security threats</li>
+            <li>Respond to lawful requests</li>
+        </ul>
+
+        <p>We will notify you of legal requests unless prohibited by law.</p>
+    </section>
+
+    <section class="section">
+        <h2>International Data Transfers</h2>
+        <p>We process data globally using:</p>
+        <ul>
+            <li>Standard Contractual Clauses for EU data</li>
+            <li>Adequacy decisions where available</li>
+            <li>Encryption during transfer and storage</li>
+            <li>Data localization options for enterprise customers</li>
+        </ul>
+    </section>
+
+    <section class="section">
+        <h2>Your Rights</h2>
+        
+        <h3>Data Subject Rights</h3>
+        <p>You have the right to:</p>
+        <ul>
+            <li><strong>Access:</strong> Request copies of your personal data</li>
+            <li><strong>Correction:</strong> Update inaccurate information</li>
+            <li><strong>Deletion:</strong> Request data deletion (with limitations)</li>
+            <li><strong>Portability:</strong> Export your data</li>
+            <li><strong>Restriction:</strong> Limit processing in certain cases</li>
+            <li><strong>Objection:</strong> Object to processing for direct marketing</li>
+            <li><strong>Consent Withdrawal:</strong> Revoke consent anytime</li>
+        </ul>
+
+        <h3>Exercising Rights</h3>
+        <p>Submit requests via email or your account dashboard. We respond within 30 days.</p>
+    </section>
+
+    <section class="section">
+        <h2>Data Retention</h2>
+        <p>We retain data only as long as necessary:</p>
+        <ul>
+            <li>Account data: Active account + 30 days</li>
+            <li>API logs: 30 days (security logs: 90 days)</li>
+            <li>Billing records: 7 years (legal requirement)</li>
+            <li>Support tickets: 2 years</li>
+        </ul>
+
+        <p>After retention periods, data is securely deleted or anonymized.</p>
+    </section>
+
+    <section class="section">
+        <h2>Children's Privacy</h2>
+        <p>Our Service is not intended for children under 13. We do not knowingly collect children's data. If you believe we have children's data, contact us for immediate deletion.</p>
+    </section>
+
+    <section class="section">
+        <h2>Changes to Policy</h2>
+        <p>We may update this policy periodically. Changes include:</p>
+        <ul>
+            <li>Updated "Last updated" date</li>
+            <li>Email notification for material changes</li>
+            <li>30-day notice for significant changes</li>
+            <li>Consent required for new uses</li>
+        </ul>
+    </section>
+
+    <section class="section">
+        <h2>Contact Information</h2>
+        
+        <h3>Data Protection Officer</h3>
+        <div class="contact-info">
+            <p><strong>Email:</strong> <a href="mailto:sherry.aitools1@gmail.com">sherry.aitools1@gmail.com</a></p>
+            <p><strong>Response Time:</strong> Within 48 hours</p>
+            <p><strong>Language:</strong> English</p>
+        </div>
+
+        <h3>Supervisory Authority</h3>
+        <p>If you're in the EU, you have the right to lodge complaints with your local data protection authority.</p>
+    </section>
+
+    <div class="legal-footer">
+        <p>© 2025 Zenvexa Inc. All rights reserved.</p>
+    </div>
+</div>
+{% endblock %}
+  
