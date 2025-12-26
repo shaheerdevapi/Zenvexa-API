@@ -1,0 +1,182 @@
+{% extends "base.html" %}
+
+{% block title %}Terms of Service - Zenvexa API{% endblock %}
+
+{% block extra_css %}
+<style>
+    :root {
+        --primary: #0ea5e9;
+        --primary-dark: #0284c7;
+        --gray-50: #f8fafc;
+        --gray-100: #f1f5f9;
+        --gray-200: #e2e8f0;
+        --gray-300: #cbd5e1;
+        --gray-500: #64748b;
+        --gray-700: #334155;
+        --gray-900: #0f172a;
+    }
+
+    .legal-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 4rem 2rem;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        background-color: white;
+        color: var(--gray-900);
+        line-height: 1.7;
+    }
+
+    .legal-header {
+        text-align: center;
+        margin-bottom: 4rem;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid var(--gray-200);
+    }
+
+    .legal-header h1 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin: 0 0 1rem;
+    }
+
+    .last-updated {
+        color: var(--gray-500);
+        font-size: 0.875rem;
+        font-weight: 500;
+    }
+
+    .section {
+        margin-bottom: 3rem;
+    }
+
+    .section h2 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin: 0 0 1rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid var(--gray-100);
+    }
+
+    .section h3 {
+        font-size: 1.125rem;
+        font-weight: 600;
+        color: var(--gray-700);
+        margin: 1.5rem 0 0.5rem;
+    }
+
+    .section p, .section li {
+        color: var(--gray-700);
+        margin: 0 0 1rem;
+    }
+
+    .section ul {
+        padding-left: 1.5rem;
+        margin: 0 0 1rem;
+    }
+
+    .highlight-box {
+        background-color: var(--gray-50);
+        border-left: 4px solid var(--primary);
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+        border-radius: 0 8px 8px 0;
+    }
+
+    .contact-info {
+        background-color: var(--gray-50);
+        padding: 1.5rem;
+        border-radius: 8px;
+        margin-top: 2rem;
+    }
+
+    .contact-info a {
+        color: var(--primary);
+        text-decoration: none;
+        font-weight: 500;
+    }
+
+    .contact-info a:hover {
+        text-decoration: underline;
+    }
+
+    .legal-footer {
+        margin-top: 4rem;
+        padding-top: 2rem;
+        border-top: 1px solid var(--gray-200);
+        text-align: center;
+        color: var(--gray-500);
+        font-size: 0.875rem;
+    }
+
+    @media (max-width: 768px) {
+        .legal-container {
+            padding: 2rem 1rem;
+        }
+
+        .legal-header h1 {
+            font-size: 2rem;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="legal-container">
+    <div class="legal-header">
+        <h1>Terms of Service</h1>
+        <p class="last-updated">Last updated: December 26, 2025</p>
+    </div>
+
+    <section class="section">
+        <h2>Introduction</h2>
+        <p>Welcome to Zenvexa API. These Terms of Service govern your access to and use of the Zenvexa API platform, including all associated services, websites, and applications.</p>
+        <p>By accessing or using our Service, you agree to be bound by these Terms. If you do not agree, please do not use our Service.</p>
+    </section>
+
+    <section class="section">
+        <h2>User Responsibilities</h2>
+        <h3>Account Security</h3>
+        <p>You are responsible for maintaining the confidentiality of your account credentials and API keys. You agree to keep your password secure and notify us immediately of any unauthorized use.</p>
+
+        <h3>Prohibited Uses</h3>
+        <p>You may not use the Service to violate any laws, infringe upon others' rights, transmit harmful content, or engage in fraudulent activities.</p>
+    </section>
+
+    <section class="section">
+        <h2>API Usage</h2>
+        <p>We provide generous rate limits for legitimate use cases. You agree to respect these limits and use the API efficiently. Competitive analysis or benchmarking requires explicit permission.</p>
+    </section>
+
+    <section class="section">
+        <h2>Limitations</h2>
+        <p>While we maintain 99.9% uptime, we do not guarantee uninterrupted service. We may impose usage limits including API calls, data storage, and bandwidth. We strive for data accuracy but cannot guarantee completeness.</p>
+    </section>
+
+    <section class="section">
+        <h2>Termination</h2>
+        <p>You may terminate your account anytime. We may suspend or terminate accounts for Terms violations, harmful use, non-payment, or illegal activities. Upon termination, your API keys are immediately disabled and we may delete your data after a retention period.</p>
+    </section>
+
+    <section class="section">
+        <h2>Liability</h2>
+        <p>To the maximum extent permitted by law, Zenvexa is not liable for indirect, incidental, special, or consequential damages. The Service is provided "as is" without warranties. Our total liability shall not exceed amounts paid to us in the 12 months preceding any claim.</p>
+    </section>
+
+    <section class="section">
+        <h2>Changes to Terms</h2>
+        <p>We may update these Terms periodically. We'll notify you of material changes via email or the Service. Continued use after changes constitutes acceptance of updated Terms.</p>
+    </section>
+
+    <section class="section">
+        <h2>Contact Us</h2>
+        <div class="contact-info">
+            <p><strong>Email:</strong> <a href="mailto:sherry.aitools1@gmail.com">sherry.aitools1@gmail.com</a></p>
+        </div>
+    </section>
+
+    <div class="legal-footer">
+        <p>© 2025 Zenvexa Inc. All rights reserved.</p>
+    </div>
+</div>
+{% endblock %}
+  
