@@ -1,0 +1,455 @@
+{% extends "base.html" %}
+
+{% block title %}Create Your Zenvexa Account{% endblock %}
+
+{% block extra_css %}
+<style>
+    :root {
+        --primary: #0ea5e9;
+        --primary-dark: #0284c7;
+        --gray-50: #f8fafc;
+        --gray-100: #f1f5f9;
+        --gray-300: #cbd5e1;
+        --gray-500: #64748b;
+        --gray-700: #334155;
+        --gray-900: #0f172a;
+        --error: #ef4444;
+        --success: #10b981;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        background-color: var(--gray-50);
+        color: var(--gray-900);
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+    }
+
+    .auth-container {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+    }
+
+    .auth-card {
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        width: 100%;
+        max-width: 440px;
+        padding: 3rem;
+    }
+
+    .auth-header {
+        text-align: center;
+        margin-bottom: 2.5rem;
+    }
+
+    .logo {
+        width: 48px;
+        height: 48px;
+        margin: 0 auto 1.5rem;
+        background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: 700;
+        font-size: 20px;
+    }
+
+    h1 {
+        font-size: 1.875rem;
+        font-weight: 700;
+        color: var(--gray-900);
+        margin: 0 0 0.5rem;
+    }
+
+    .subtitle {
+        color: var(--gray-500);
+        font-size: 1rem;
+        margin: 0;
+    }
+
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+
+    label {
+        display: block;
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: var(--gray-700);
+        margin-bottom: 0.5rem;
+    }
+
+    .input-wrapper {
+        position: relative;
+    }
+
+    input {
+        width: 100%;
+        padding: 0.75rem 1rem;
+        border: 1px solid var(--gray-300);
+        border-radius: 8px;
+        font-size: 1rem;
+        transition: all 0.2s ease;
+        background-color: white;
+    }
+
+    input:focus {
+        outline: none;
+        border-color: var(--primary);
+        box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1);
+    }
+
+    input.error {
+        border-color: var(--error);
+    }
+
+    .error-message {
+        color: var(--error);
+        font-size: 0.875rem;
+        margin-top: 0.5rem;
+        display: none;
+    }
+
+    .error-message.show {
+        display: block;
+    }
+
+    .password-strength {
+        margin-top: 0.5rem;
+        height: 4px;
+        background-color: var(--gray-100);
+        border-radius: 2px;
+        overflow: hidden;
+    }
+
+    .password-strength-bar {
+        height: 100%;
+        width: 0;
+        transition: all 0.3s ease;
+        border-radius: 2px;
+    }
+
+    .password-strength-bar.weak {
+        width: 33%;
+        background-color: var(--error);
+    }
+
+    .password-strength-bar.medium {
+        width: 66%;
+        background-color: #f59e0b;
+    }
+
+    .password-strength-bar.strong {
+        width: 100%;
+        background-color: var(--success);
+    }
+
+    .submit-btn {
+        width: 100%;
+        padding: 0.875rem;
+        background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        margin-top: 1.5rem;
+    }
+
+    .submit-btn:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(14, 165, 233, 0.3);
+    }
+
+    .submit-btn:active {
+        transform: translateY(0);
+    }
+
+    .submit-btn:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+        transform: none;
+    }
+
+    .divider {
+        text-align: center;
+        margin: 2rem 0;
+        position: relative;
+    }
+
+    .divider::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background-color: var(--gray-200);
+    }
+
+    .divider span {
+        background-color: white;
+        padding: 0 1rem;
+        color: var(--gray-500);
+        font-size: 0.875rem;
+        position: relative;
+    }
+
+    .auth-footer {
+        text-align: center;
+        margin-top: 2rem;
+        color: var(--gray-500);
+        font-size: 0.875rem;
+    }
+
+    .auth-footer a {
+        color: var(--primary);
+        text-decoration: none;
+        font-weight: 500;
+    }
+
+    .auth-footer a:hover {
+        text-decoration: underline;
+    }
+
+    .terms {
+        margin-top: 1.5rem;
+        font-size: 0.75rem;
+        color: var(--gray-500);
+        text-align: center;
+        line-height: 1.5;
+    }
+
+    .terms a {
+        color: var(--primary);
+        text-decoration: none;
+    }
+
+    .terms a:hover {
+        text-decoration: underline;
+    }
+
+    @media (max-width: 480px) {
+        .auth-card {
+            padding: 2rem;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="auth-container">
+    <div class="auth-card">
+        <div class="auth-header">
+            <div class="logo">Z</div>
+            <h1>Create your account</h1>
+            <p class="subtitle">Join thousands of developers building with Zenvexa API</p>
+        </div>
+
+        <form id="signupForm" novalidate>
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <div class="input-wrapper">
+                    <input type="text" id="name" name="name" required placeholder="John Doe" autocomplete="name">
+                </div>
+                <div class="error-message" id="nameError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <div class="input-wrapper">
+                    <input type="email" id="email" name="email" required placeholder="john@example.com" autocomplete="email">
+                </div>
+                <div class="error-message" id="emailError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <div class="input-wrapper">
+                    <input type="password" id="password" name="password" required placeholder="••••••••" autocomplete="new-password">
+                </div>
+                <div class="password-strength">
+                    <div class="password-strength-bar" id="passwordStrength"></div>
+                </div>
+                <div class="error-message" id="passwordError"></div>
+            </div>
+
+            <button type="submit" class="submit-btn" id="submitBtn">
+                Create Account
+            </button>
+        </form>
+
+        <div class="divider">
+            <span>or</span>
+        </div>
+
+        <div class="auth-footer">
+            Already have an account? <a href="/login">Sign in</a>
+        </div>
+
+        <div class="terms">
+            By creating an account, you agree to our <a href="/terms">Terms of Service</a> and <a href="/privacy">Privacy Policy</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // Form validation
+    const form = document.getElementById('signupForm');
+    const nameInput = document.getElementById('name');
+    const emailInput = document.getElementById('email');
+    const passwordInput = document.getElementById('password');
+    const submitBtn = document.getElementById('submitBtn');
+
+    // Error elements
+    const nameError = document.getElementById('nameError');
+    const emailError = document.getElementById('emailError');
+    const passwordError = document.getElementById('passwordError');
+    const passwordStrength = document.getElementById('passwordStrength');
+
+    // Validation functions
+    function validateName() {
+        const name = nameInput.value.trim();
+        if (name.length < 2) {
+            showError(nameInput, nameError, 'Name must be at least 2 characters long');
+            return false;
+        }
+        if (!/^[a-zA-Z\s'-]+$/.test(name)) {
+            showError(nameInput, nameError, 'Name can only contain letters, spaces, hyphens, and apostrophes');
+            return false;
+        }
+        hideError(nameInput, nameError);
+        return true;
+    }
+
+    function validateEmail() {
+        const email = emailInput.value.trim();
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        
+        if (!email) {
+            showError(emailInput, emailError, 'Email is required');
+            return false;
+        }
+        if (!emailRegex.test(email)) {
+            showError(emailInput, emailError, 'Please enter a valid email address');
+            return false;
+        }
+        hideError(emailInput, emailError);
+        return true;
+    }
+
+    function validatePassword() {
+        const password = passwordInput.value;
+        
+        if (password.length < 8) {
+            showError(passwordInput, passwordError, 'Password must be at least 8 characters long');
+            updatePasswordStrength(0);
+            return false;
+        }
+        
+        let strength = 0;
+        if (password.length >= 12) strength++;
+        if (/[a-z]/.test(password)) strength++;
+        if (/[A-Z]/.test(password)) strength++;
+        if (/[0-9]/.test(password)) strength++;
+        if (/[^A-Za-z0-9]/.test(password)) strength++;
+
+        updatePasswordStrength(strength);
+
+        if (strength < 3) {
+            showError(passwordInput, passwordError, 'Password is too weak. Use a mix of uppercase, lowercase, numbers, and symbols');
+            return false;
+        }
+        
+        hideError(passwordInput, passwordError);
+        return true;
+    }
+
+    function updatePasswordStrength(strength) {
+        passwordStrength.className = 'password-strength-bar';
+        if (strength === 0) {
+            passwordStrength.style.width = '0';
+        } else if (strength <= 2) {
+            passwordStrength.classList.add('weak');
+        } else if (strength <= 3) {
+            passwordStrength.classList.add('medium');
+        } else {
+            passwordStrength.classList.add('strong');
+        }
+    }
+
+    function showError(input, errorElement, message) {
+        input.classList.add('error');
+        errorElement.textContent = message;
+        errorElement.classList.add('show');
+    }
+
+    function hideError(input, errorElement) {
+        input.classList.remove('error');
+        errorElement.classList.remove('show');
+    }
+
+    // Real-time validation
+    nameInput.addEventListener('blur', validateName);
+    emailInput.addEventListener('blur', validateEmail);
+    passwordInput.addEventListener('input', validatePassword);
+
+    // Form submission
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        // Validate all fields
+        const isNameValid = validateName();
+        const isEmailValid = validateEmail();
+        const isPasswordValid = validatePassword();
+
+        if (!isNameValid || !isEmailValid || !isPasswordValid) {
+            return;
+        }
+
+        // Disable submit button
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Creating account...';
+
+        try {
+            // Simulate API call
+            await new Promise(resolve => setTimeout(resolve, 1500));
+            
+            // Show success message
+            submitBtn.textContent = 'Account created!';
+            submitBtn.style.background = 'var(--success)';
+            
+            // Redirect to dashboard after 1 second
+            setTimeout(() => {
+                window.location.href = '/dashboard';
+            }, 1000);
+            
+        } catch (error) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Create Account';
+            alert('Something went wrong. Please try again.');
+        }
+    });
+</script>
+{% endblock %}
+  
