@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Zenvexa API - Professional API marketplace platform for listing, managing, and monetizing your APIs">
+    <meta name="keywords" content="API marketplace, API management, API monetization, developer platform">
+    <meta name="author" content="Zenvexa API">
+    
+    <title>{% block title %}Zenvexa API - Professional API Marketplace{% endblock %}</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="/static/css/style.css">
+    
+    <!-- Additional Page-Specific Styles -->
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <!-- ===================================
+         Header & Navigation
+         =================================== -->
+    <header>
+        <nav>
+            <a href="/" class="logo">Zenvexa API</a>
+            
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/features">Features</a></li>
+                <li><a href="/pricing">Pricing</a></li>
+                <li><a href="/docs">Documentation</a></li>
+                <li><a href="/contact">Contact</a></li>
+                <li><a href="/login">Login</a></li>
+                <li><a href="/signup" class="btn btn-primary btn-sm">Get Started</a></li>
+            </ul>
+            
+            <button class="mobile-menu" aria-label="Toggle mobile menu">☰</button>
+        </nav>
+    </header>
+
+    <!-- ===================================
+         Main Content Area
+         =================================== -->
+    <main>
+        {% block content %}
+        <!-- Page-specific content goes here -->
+        {% endblock %}
+    </main>
+
+    <!-- ===================================
+         Footer
+         =================================== -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>Zenvexa API</h4>
+                <p>Professional API marketplace platform for developers and businesses.</p>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Product</h4>
+                <ul>
+                    <li><a href="/features">Features</a></li>
+                    <li><a href="/pricing">Pricing</a></li>
+                    <li><a href="/docs">Documentation</a></li>
+                    <li><a href="/api-reference">API Reference</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/blog">Blog</a></li>
+                    <li><a href="/careers">Careers</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="/guides">Guides</a></li>
+                    <li><a href="/help">Help Center</a></li>
+                    <li><a href="/status">System Status</a></li>
+                    <li><a href="/terms">Terms of Service</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Contact Us</h4>
+                <ul>
+                    <li><a href="mailto:sherry.aitools1@gmail.com">sherry.aitools1@gmail.com</a></li>
+                    <li><a href="tel:+923468686050">+92 346 8686050</a></li>
+                    <li><a href="/contact">Contact Form</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Connect</h4>
+                <ul>
+                    <li><a href="#twitter" target="_blank" rel="noopener">Twitter</a></li>
+                    <li><a href="#github" target="_blank" rel="noopener">GitHub</a></li>
+                    <li><a href="#linkedin" target="_blank" rel="noopener">LinkedIn</a></li>
+                    <li><a href="#discord" target="_blank" rel="noopener">Discord</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 Zenvexa API. All rights reserved. | <a href="/privacy">Privacy Policy</a> | <a href="/terms">Terms of Service</a></p>
+        </div>
+    </footer>
+
+    <!-- ===================================
+         JavaScript
+         =================================== -->
+    <script src="/static/js/main.js"></script>
+    
+    <!-- Additional Page-Specific Scripts -->
+    {% block extra_js %}{% endblock %}
+</body>
+</html>
